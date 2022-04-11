@@ -26,6 +26,6 @@ steps:
     serviceConnectionEndpoint: 'devsecopsdemosnyk'
     testType: 'app'
     monitorWhen: 'always'
-    failOnIssues: true
+    failOnIssues: false
 
 
