@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+schedules:
+- cron: "0 14 * * 1"
+  displayName: 25th 5:30 AM (IST) Every Month
+  branches:
+    include:
+    - master
+pool:
+  vmImage: ubuntu-latest
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+- task: releaseorchestrator@2
+  inputs:
+    endpointType: 'integrated'
+    projectName: 'Snykintegration1'
+    definitionName: 'Runs frequently'
+    releaseStrategy: 'create'
+    definitionStage: 'Test'
+    approvalRetry: 60
+    updateInterval: 5
