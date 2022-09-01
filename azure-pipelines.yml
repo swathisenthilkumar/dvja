@@ -1,10 +1,10 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+schedules:
+- cron: "35 9 * * THU"
+  displayName: 25th 5:30 AM (IST) Every Month
+  branches:
+    include:
+    - master
 
-trigger:
-- master
 
 pool:
   vmImage: ubuntu-latest
@@ -27,4 +27,13 @@ steps:
     testType: 'app'
     monitorWhen: 'always'
     failOnIssues: false
+- task: releaseorchestrator@2
+  inputs:
+    endpointType: 'integrated'
+    projectName: 'Releasezap'
+    definitionName: 'New release pipeline'
+    releaseStrategy: 'create'
+    definitionStage: 'Securitytesting'
+    approvalRetry: 60
+    updateInterval: 5
 
