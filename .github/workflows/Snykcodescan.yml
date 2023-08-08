@@ -1,9 +1,6 @@
-name: PRforsnykwithbash
+name: Snykcodescan
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
+  push
 
 jobs:
   SNykPR:
