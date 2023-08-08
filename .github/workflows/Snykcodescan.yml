@@ -3,7 +3,7 @@ on:
   push
 
 jobs:
-  SNykPR:
+  SNykCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -16,7 +16,7 @@ jobs:
          echo "----------Authenticating Snyk-----------"
          ./snyk auth ${{secrets.Snyk_token}}
          echo "----------Snyk Code Scanning-----------"
-         ./snyk code test --report --project-id="7e18c8c3-4040-432c-82c5-8a4ddd9d08e5"
+         ./snyk code test
              
              
              
