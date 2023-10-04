@@ -9,8 +9,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: ZapScanning
       run: |
-           docker run --rm -v $(pwd):/zap/wrk/:rw -t ictu/zap2docker-weekly zap-full-scan.py -I -j -m 10 -T 60 \ -t https://plt-perf.marksandspencer.app/mark-cms/login \
-           -r testreport.html \
+           docker run --rm -v $(pwd):/zap/wrk/:rw -t ictu/zap2docker-weekly zap-full-scan.py -I -j -m 10 -T 60 \
+           -t https://plt-perf.marksandspencer.app/mark-cms/login \
            --hook=/zap/auth_hook.py \
            -z "auth.loginurl=https://plt-perf.marksandspencer.app/mark-cms/login \
             auth.username="${{ secrets.zapusername }}" \
