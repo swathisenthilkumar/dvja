@@ -3,7 +3,7 @@ on:
   push
 
 jobs:
-  SNykCode:
+  ZapCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -14,7 +14,7 @@ jobs:
            --hook=/zap/auth_hook.py \
            -z "auth.loginurl=https://plt-perf.marksandspencer.app/mark-cms/login \
             auth.username="${{ secrets.zapusername }}" \
-            auth.password="{{ secrets.zappassword }}" \
+            auth.password="${{ secrets.zappassword }}" \
             auth.submit_field="Login" \
             auth.exclude=".*logout.*,http://url.com/somepath.*" \
             auth.include="https://plt-perf.marksandspencer.app/mark-cms/*"
