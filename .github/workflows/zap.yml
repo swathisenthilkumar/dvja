@@ -15,9 +15,9 @@ jobs:
            -z "auth.loginurl=https://plt-perf.marksandspencer.app/mark-cms/login \
             auth.username="CI_CD" \
             auth.password="PLTuser200" \
-            #auth.username_field="j_username" \
-            #auth.password_field="j_password" \
-            auth.submit_field="loginFormSbmBtn" \
+            #auth.username_field='j_username' \
+            #auth.password_field='j_password' \
+            auth.submit_field='loginFormSbmBtn' \
             auth.exclude=".*logout.*,http://url.com/somepath.*" \
             auth.include="https://plt-perf.marksandspencer.app/mark-cms/*""
             
