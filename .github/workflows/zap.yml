@@ -17,5 +17,5 @@ jobs:
             auth.password="${{ secrets.zappassword }}" \
             auth.submit_field="Login" \
             auth.exclude=".*logout.*,http://url.com/somepath.*" \
-            auth.include="https://plt-perf.marksandspencer.app/mark-cms/*"
+            auth.include="https://plt-perf.marksandspencer.app/mark-cms/*""
             
