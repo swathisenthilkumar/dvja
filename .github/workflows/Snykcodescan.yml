@@ -15,10 +15,8 @@ jobs:
          ls -lrt
          echo "----------Authenticating Snyk-----------"
          ./snyk auth ${{secrets.Snyk_token}}
-         echo "---snyk config with organization----"
-         ./snyk config set --org="01ece29f-d384-4e4e-bfed-b87a65f36130"
          echo "----------Snyk Code Scanning-----------"
-         ./snyk code test --report --project-name="javacode"
+         ./snyk code test --report --project-name="javacode" --org="01ece29f-d384-4e4e-bfed-b87a65f36130"
              
              
              
