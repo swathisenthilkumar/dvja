@@ -1,10 +1,10 @@
 pipeline {
   agent any
     environment {
-      sh echo "SEMGREP_APP_TOKEN"
+      echo "SEMGREP_APP_TOKEN"
       // The following variable is required for a Semgrep Cloud Platform-connected scan:
       SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-       sh echo "SEMGREP_APP_TOKEN"
+       echo "SEMGREP_APP_TOKEN"
       // Uncomment the following line to scan changed 
       // files in PRs or MRs (diff-aware scanning): 
       // SEMGREP_BASELINE_REF = "main"
