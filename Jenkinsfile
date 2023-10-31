@@ -1,7 +1,8 @@
 pipeline {
   agent any
-    environment {
-      
+    stage('Checkout') {
+            steps {
+                script {
       // The following variable is required for a Semgrep Cloud Platform-connected scan:
       SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
        
@@ -22,6 +23,7 @@ pipeline {
       // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
       // SEMGREP_PR_ID = "${env.CHANGE_ID}"
     }
+            }
     stages {
       stage('Semgrep-Scan') {
         steps {
