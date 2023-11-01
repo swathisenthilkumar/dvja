@@ -1,17 +1,13 @@
 pipeline {
   agent any
-    stage('Checkout') {
-            steps {
-                script {
+    environment {
       // The following variable is required for a Semgrep Cloud Platform-connected scan:
       SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
-       
+
       // Uncomment the following line to scan changed 
       // files in PRs or MRs (diff-aware scanning): 
       // SEMGREP_BASELINE_REF = "main"
-      withCredentials([string(credentialsId: 'SEMGREP_APP_TOKEN', variable: 'SEMGREP_APP_TOKEN')]) {
-    // some block
-}
+
       // Troubleshooting:
 
       // Uncomment the following lines if Semgrep Cloud Platform > Findings Page does not create links
@@ -23,7 +19,6 @@ pipeline {
       // SEMGREP_REPO_URL = env.GIT_URL.replaceFirst(/^(.*).git$/,'$1')
       // SEMGREP_PR_ID = "${env.CHANGE_ID}"
     }
-            }
     stages {
       stage('Semgrep-Scan') {
         steps {
